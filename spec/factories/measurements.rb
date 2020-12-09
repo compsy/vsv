@@ -8,6 +8,7 @@ FactoryBot.define do
     open_duration { 2.hours.to_i }
     reward_points { 1 }
     should_invite { true }
+    collapse_duplicates { true }
     stop_measurement { false }
     trait :stop_measurement do
       stop_measurement { true }

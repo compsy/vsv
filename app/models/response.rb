@@ -6,6 +6,7 @@ class Response < ApplicationRecord
   # to be nil.
   RECENT_PAST = 2.hours
   CSRF_FAILED = 'csrf_failed'
+  COLLAPSIBLE_WINDOW = 5.minutes
 
   before_destroy :destroy_response_content
 
@@ -181,6 +182,20 @@ class Response < ApplicationRecord
   def response_expired?
     measurement.open_duration.present? &&
       Time.zone.now > TimeTools.increase_by_duration(open_from, measurement.open_duration)
+  end
+
+  # Should return the responses that have the same open_from time and belong to the same measurement and are filled out
+  # by the same person
+  def collapsible_duplicates
+    protocol_subscription_ids = person.protocol_subscriptions.active.where.not(id: protocol_subscription_id)
+
+    Response.where('open_from <= :the_future AND open_from > :the_past',
+                   the_future: TimeTools.increase_by_duration(open_from, COLLAPSIBLE_WINDOW),
+                   the_past: TimeTools.increase_by_duration(open_from, -1 * COLLAPSIBLE_WINDOW)).where(
+                     completed_at: nil,
+                     measurement_id: measurement_id,
+                     protocol_subscription_id: protocol_subscription_ids
+                   )
   end
 
   private

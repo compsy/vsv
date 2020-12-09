@@ -69,10 +69,26 @@ class QuestionnaireController < ApplicationController
   end
 
   def create
-    response_content = ResponseContent.create_with_scores!(content: questionnaire_content, response: @response)
-    @response.update!(content: response_content.id)
-    @response.complete!
+    complete_response
     check_stop_subscription
+    if @response.measurement.collapse_duplicates?
+      orig_response = @response
+      was_canceled = orig_response.protocol_subscription.canceled?
+      orig_response.collapsible_duplicates.each do |response|
+        # we have to override @response because it is used everywhere
+        @response = response
+        # Set the opened at to the same time as the original response
+        @response.update!(opened_at: orig_response.opened_at)
+        complete_response
+        # if the original response canceled the protocol subscription, so should this one
+        # (because if it is the same measurement, it is also a stop measurement).
+        # We call stop_protocol_subscription instead of check_protocol_subscription, because
+        # the latter performs a check on a hash in the response_contents with the id of the response,
+        # which wouldn't match.
+        stop_protocol_subscription if was_canceled
+      end
+      @response = orig_response
+    end
     redirect_to questionnaire_create_params[:callback_url] || NextPageFinder.get_next_page(current_user: current_user,
                                                                                            previous_response: @response)
   end
@@ -92,6 +108,12 @@ class QuestionnaireController < ApplicationController
   end
 
   private
+
+  def complete_response
+    response_content = ResponseContent.create_with_scores!(content: questionnaire_content, response: @response)
+    @response.update!(content: response_content.id)
+    @response.complete!
+  end
 
   def set_locale
     person = current_user
