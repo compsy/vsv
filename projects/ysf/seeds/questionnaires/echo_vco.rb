@@ -35,7 +35,7 @@ content = [
       Hoe zeker ben je ervan dat je in staat bent om:
     </p>'
   },
-  create_question(:v1, 'Tot de top van de beste kandidaten te behoren die de VCO gaat halen'),
+  create_question(:v1, 'Tot de top 3 van de beste kandidaten te behoren die de VCO gaat halen'),
   create_question(:v2, 'Nog goed te functioneren nadat je een nacht niet hebt geslapen?'),
   create_question(:v3, 'Nog goed te functioneren nadat je twee nachten niet hebt geslapen?'),
   create_question(:v4, 'Pijn te lijden in de komende periode?'),

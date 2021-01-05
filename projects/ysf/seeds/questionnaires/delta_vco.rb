@@ -22,7 +22,7 @@ content = [
     type: :raw,
     content: '
 <ul class="flow-text section-explanation">
-Voor de volgende vragen kan gekozen worden uit de volgende mogelijkheden:
+Voor de volgende vragen kan gekozen worden uit de volgende mogelijkheden:<br/>
 <li>
 1 = sterk mee oneens
 </li>
@@ -50,7 +50,8 @@ Voor de volgende vragen kan gekozen worden uit de volgende mogelijkheden:
 <li>
 7 = sterk mee eens
 </li>
-
+<br/>
+<br/>
 Je doel is het succesvol afronden van de VCO.
 De volgende vragen gaan over dit doel.
 </ul>
