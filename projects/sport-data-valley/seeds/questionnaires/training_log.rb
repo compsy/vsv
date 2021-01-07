@@ -92,13 +92,8 @@ dagboek_content = [
   },
   {
     id: :v4,
-    type: :time,
+    type: :time_fancy,
     title: '',
-    hours_from: 0,
-    hours_to: 24,
-    hours_step: 1,
-    hours_label: { nl: 'uur', en: 'hour' },
-    minutes_label: { nl: 'minuten', en: 'minutes' },
     required: true
   },
   {

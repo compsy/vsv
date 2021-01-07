@@ -32,6 +32,11 @@ $(function() {
     }
   });
 
+  // Enable timepickers
+  $('.timepicker').timepicker({
+    twelveHour: false
+  });
+
   // Enable datepickers
   $('.datepicker').each(function() {
     var self = this;

@@ -5,6 +5,7 @@ class QuestionnaireQuestionGenerator < Generator
     @generators = {
       radio: RadioGenerator.new,
       time: TimeGenerator.new,
+      time_fancy: TimeFancyGenerator.new,
       checkbox: CheckboxGenerator.new,
       range: RangeGenerator.new,
       likert: LikertGenerator.new,
