@@ -10,13 +10,16 @@ protocol.informed_consent_questionnaire = nil
 protocol.save!
 
 questionnaires = [
-  # 'KCT Alfa',
+  'KCT Alfa',
   'KCT Bravo',
   'KCT Charlie',
+  'KCT Delta',
   'KCT Delta VCO',
+  'KCT Echo',
   'KCT Echo VCO',
   'KCT Foxtrot',
   'KCT Golf',
+  'KCT Hotel',
   'KCT Hotel VCO',
   'KCT India',
   'KCT Julliet',
