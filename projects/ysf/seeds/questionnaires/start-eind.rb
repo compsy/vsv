@@ -33,7 +33,8 @@ def create_ponder_question(id, title, negative, positive)
     ],
     min: 0,
     max: 100,
-    step: 1
+    step: 1,
+    value: 0
   }
 end
 
@@ -142,7 +143,8 @@ def create_medic_question()
           labels: ['0 = geen pijn', '10 = ergst denkbare pijn'],
           min: 0,
           max: 10,
-          step: 1
+          step: 1,
+          value: 0
         }
       ]
     },
@@ -190,7 +192,8 @@ def create_event_question()
         labels: ['0 = zeer negatief', '10 = zeer positief'],
         min: 0,
         max: 10,
-        step: 1
+        step: 1,
+        value: 0
       },
       {
         id: :gebeurtenis_tekst,
@@ -211,7 +214,8 @@ def create_srss_question(title, examples)
     labels: ['0 = helemaal niet van toepassing', '6 = helemaal van toepassing'],
     min: 0,
     max: 6,
-    step: 1
+    step: 1,
+    value: 0
   }
 end
 
@@ -255,7 +259,8 @@ def create_sleep_question(id, title)
     labels: ['1 = helemaal niet van toepassing', '5 = helemaal van toepassing'],
     min: 1,
     max: 5,
-    step: 1
+    step: 1,
+    value: 1
   }
 end
 
