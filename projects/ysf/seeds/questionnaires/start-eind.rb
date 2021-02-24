@@ -66,13 +66,13 @@ def create_monday_ponder_questions()
     },
     create_ponder_question(
       :vertrouwen,
-      'Hoe zeker ben je ervan dat je de ECO kan halen?',
+      'Hoe zeker ben je ervan dat je de opleiding kan halen?',
       'helemaal niet zeker',
       'heel erg zeker'
     ),
     create_ponder_question(
       :motivatie,
-      'Hoe gemotiveerd ben je om de ECO te halen?',
+      'Hoe gemotiveerd ben je om de opleiding te halen?',
       'helemaal niet gemotiveerd',
       'heel erg gemotiveerd'
     )
