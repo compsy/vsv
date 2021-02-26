@@ -152,7 +152,7 @@ def create_medic_question()
       type: :raw,
       content: '
       <center>
-        <img src="/images/questionnaires/kct/blessures.jpg" style="width: 80%; margin-left: 3rem;" />
+        <img src="/images/questionnaires/kct/blessures.jpg" style="width: 80%, margin-left: 3rem;" />
       </center>
       '
     }
@@ -210,7 +210,7 @@ def create_srss_question(title, examples)
     id: title.gsub(/\s+/, "_").downcase.to_sym,
     type: :range,
     required: true,
-    title: sprintf('<b>%s</b>, bijvoorbeeld: %s.', title, examples),
+    title: sprintf('<b>%s</b>, b.v. %s.', title, examples),
     labels: ['0 = helemaal niet van toepassing', '6 = helemaal van toepassing'],
     min: 0,
     max: 6,
@@ -225,28 +225,28 @@ def create_srss_questions()
       type: :raw,
       content: '
       <p class="flow-text section-explanation">
-        Hieronder vind je een lijst met uitdrukkingen, die verschillende aspecten van jouw hersteltoestand beschrijven.
+        Hieronder vind je een lijst met uitdrukkingen die verschillende aspecten van jouw hersteltoestand beschrijven.
         Geef aan hoe jij je <b>op dit moment</b> voelt, in vergelijking met je beste hersteltoestand ooit.
       </p>
       '
     },
-    create_srss_question('Fysiek prestatievermogen', 'sterk; fysiek fit; energiek; vol energie'),
-    create_srss_question('Mentaal prestatievermogen', 'alert; ontvankelijk; mentaal scherp; geconcentreerd'),
-    create_srss_question('Emotionele balans', 'tevreden; stabiel; in een goede bui; alles onder controle hebben'),
-    create_srss_question('Algeheel herstel', 'hersteld; uitgerust; ontspannen spieren; fysiek ontspannen'),
+    create_srss_question('Fysiek prestatievermogen', 'sterk, fysiek fit, energiek, vol energie'),
+    create_srss_question('Mentaal prestatievermogen', 'alert, ontvankelijk, mentaal scherp, geconcentreerd'),
+    create_srss_question('Emotionele balans', 'tevreden, stabiel, in een goede stemming, alles onder controle'),
+    create_srss_question('Algeheel herstel', 'hersteld, uitgerust, ontspannen spieren, fysiek ontspannen'),
     {
       type: :raw,
       content: '
       <p class="flow-text section-explanation">
-        Hieronder vind je een lijst met uitdrukkingen, die verschillende aspecten van jouw stresstoestand beschrijven.
+        Hieronder vind je een lijst met uitdrukkingen die verschillende aspecten van jouw stresstoestand beschrijven.
         Geef aan hoe jij je <b>op dit moment</b> voelt, in vergelijking met je hoogste stresstoestand ooit.
       </p>
       '
     },
-    create_srss_question('Stress op spieren', 'uitgeputte spieren; vermoeide spieren; spierpijn; stijve spieren'),
-    create_srss_question('Gebrek aan bezieling', 'ongemotiveerd; sloom; niet enthousiast; gebrek aan energie'),
-    create_srss_question('Negatieve emotionele toestand', 'neerslachtig; gestressed; geïrriteerd; opvliegend'),
-    create_srss_question('Algehele stress', 'moe; versleten; overbelast; fysiek uitgeput')
+    create_srss_question('Stress op spieren', 'uitgeputte spieren, vermoeide spieren, spierpijn, stijve spieren'),
+    create_srss_question('Gebrek aan bezieling', 'ongemotiveerd, sloom, niet enthousiast, gebrek aan energie'),
+    create_srss_question('Negatieve emotionele toestand', 'neerslachtig, gestrest, geïrriteerd, lichtgeraakt (kort lontje)'),
+    create_srss_question('Algehele stress', 'vermoeid, afgemat, overbelast, fysiek uitgeput')
   ]
 end
 
