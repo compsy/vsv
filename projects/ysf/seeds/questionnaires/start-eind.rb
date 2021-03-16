@@ -321,8 +321,7 @@ questionnaire.key = 'eind'
 
 content = [
   create_number_question(),
-  *create_friday_ponder_questions(),
-  *create_sleep_questions()
+  *create_friday_ponder_questions()
 ]
 
 questionnaire.content = { questions: content, scores: [] }
