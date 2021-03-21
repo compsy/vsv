@@ -62,7 +62,7 @@ Voor de volgende vragen kan gekozen worden uit de volgende mogelijkheden:
   {
     id: :v7,
     type: :likert,
-    title: 'Hoe haalbaar vind je dit doel?',
+    title: 'Hoe haalbaar vind je het doel om de ECO te halen?',
     options: ['Praktisch onhaalbaar', 'Onhaalbaar', 'Nauwelijks haalbaar', 'Haalbaar', 'Gemakkelijk haalbaar']
   }
 ]
