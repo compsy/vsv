@@ -27,8 +27,7 @@ def rotate_question(id, title, image, section_end: false)
       "E",
       "F",
       "G",
-      "H",
-      "Weet ik niet"
+      "H"
     ], section_end)
 end
 
