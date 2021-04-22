@@ -120,7 +120,7 @@ def create_fyiek_question()
     id: :fysiek,
     type: :radio,
     required: true,
-    title: 'Hoe fysiek inspannend was deze opleidingsweek voor jou?',
+    title: 'Hoe fysiek inspannend was deze week voor jou?',
     options: [
       '6',
       '7 (heel, heel licht inspannend)',
@@ -147,7 +147,7 @@ def create_mentaal_question()
     id: :mentaal,
     type: :radio,
     required: true,
-    title: 'Hoe mentaal inspannend was deze opleidingsweek voor jou?',
+    title: 'Hoe mentaal inspannend was deze week voor jou?',
     options: [
       '6',
       '7 (heel, heel licht inspannend)',
@@ -407,7 +407,8 @@ content = [
   create_inspannend_question(),
   create_fyiek_question(),
   create_mentaal_question(),
-  create_prestatiedruk_question()
+  create_prestatiedruk_question(),
+  create_prestatie_question
 ]
 
 questionnaire.content = { questions: content, scores: [] }
