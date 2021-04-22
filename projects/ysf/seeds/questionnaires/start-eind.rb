@@ -79,8 +79,7 @@ def create_monday_ponder_questions()
   ]
 end
 
-def create_friday_ponder_questions()
-  [
+def create_inspannend_question()
     {
       id: :inspannend,
       type: :radio,
@@ -104,14 +103,79 @@ def create_friday_ponder_questions()
         '20'
       ],
       show_otherwise: false,
-    },
+    }
+end
+
+def create_prestatie_question()
+  create_ponder_question(
+    :prestatie,
+    'Hoe goed heb jij deze week gepresteerd?',
+    'ver beneden je kunnen',
+    'op de top van je kunnen'
+  )
+end
+
+def create_fyiek_question()
+  {
+    id: :fysiek,
+    type: :radio,
+    required: true,
+    title: 'Hoe fysiek inspannend was deze opleidingsweek voor jou?',
+    options: [
+      '6',
+      '7 (heel, heel licht inspannend)',
+      '8',
+      '9 (heel licht inspannend)',
+      '10',
+      '11 (licht inspannend)',
+      '12',
+      '13 (redelijk inspannend)',
+      '14',
+      '15 (inspannend)',
+      '16',
+      '17 (heel inspannend)',
+      '18',
+      '19 (heel, heel inspannend)',
+      '20'
+    ],
+    show_otherwise: false,
+  }
+end
+
+def create_mentaal_question()
+  {
+    id: :mentaal,
+    type: :radio,
+    required: true,
+    title: 'Hoe mentaal inspannend was deze opleidingsweek voor jou?',
+    options: [
+      '6',
+      '7 (heel, heel licht inspannend)',
+      '8',
+      '9 (heel licht inspannend)',
+      '10',
+      '11 (licht inspannend)',
+      '12',
+      '13 (redelijk inspannend)',
+      '14',
+      '15 (inspannend)',
+      '16',
+      '17 (heel inspannend)',
+      '18',
+      '19 (heel, heel inspannend)',
+      '20'
+    ],
+    show_otherwise: false,
+  }
+end
+
+def create_prestatiedruk_question()
     create_ponder_question(
-      :prestatie,
-      'Hoe goed heb jij deze week gepresteerd?',
-      'ver beneden je kunnen',
-      'op de top van je kunnen'
+      :prestatiedruk,
+      'Hoeveel prestatiedruk heb jij deze week ervaren?',
+      'helemaal geen prestatiedruk',
+      'heel veel prestatiedruk'
     )
-  ]
 end
 
 def create_medic_question()
@@ -321,7 +385,29 @@ questionnaire.key = 'eind'
 
 content = [
   create_number_question(),
-  *create_friday_ponder_questions()
+  create_inspannend_question(),
+  create_prestatie_question()
+]
+
+questionnaire.content = { questions: content, scores: [] }
+questionnaire.title = title
+questionnaire.save!
+
+###
+# Eind van de week VCO
+###
+title = 'Eind van de week VCO'
+name = 'KCT Eind van de week VCO'
+questionnaire = Questionnaire.find_by(name: name)
+questionnaire ||= Questionnaire.new(name: name)
+questionnaire.key = 'eind_vco'
+
+content = [
+  create_number_question(),
+  create_inspannend_question(),
+  create_fyiek_question(),
+  create_mentaal_question(),
+  create_prestatiedruk_question()
 ]
 
 questionnaire.content = { questions: content, scores: [] }

@@ -44,7 +44,8 @@ end
 
 questionnaires = [
   'KCT Start van de week',
-  'KCT Eind van de week'
+  'KCT Eind van de week',
+  'KCT Eind van de week VCO'
 ]
 
 questionnaires.each do |name|
