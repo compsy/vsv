@@ -181,7 +181,7 @@ end
 def create_prestatiedruk_question()
   create_ponder_question(
     :prestatiedruk,
-    'Hoeveel <b>prestatiedruk</b> heb jij deze week ervaren?',
+    'Hoeveel prestatiedruk heb jij deze week ervaren?',
     'helemaal geen prestatiedruk',
     'heel veel prestatiedruk'
   )
@@ -190,7 +190,7 @@ end
 def create_leerstof_question()
   create_ponder_question(
     :leerstof,
-    'Hoe goed kon je de hoeveelheid leerstof de afgelopen week verwerken?',
+    'Hoe goed kon jij deze week de leerstof verwerken?',
     'heel erg slecht',
     'heel erg goed'
   )
@@ -219,7 +219,7 @@ def create_medic_question()
     {
       id: :plaats_expandable,
       type: :expandable,
-      title: 'Geef, met behulp van onderstaande afbeelding, zo nauwkeurig mogelijk de plaats(en) op het lichaam aan waar je de afgelopen week klachten had en hoeveel last je had. Je kunt een plaats selecteren via de knop "Voeg plaats toe".',
+      title: 'Geef, met behulp van onderstaande afbeelding, zo nauwkeurig mogelijk de plaats(en) op het lichaam aan waar je deze week klachten had en hoeveel last je had. Je kunt een plaats selecteren via de knop "Voeg plaats toe".',
       add_button_label: 'Voeg plaats toe',
       max_expansions: 5,
       remove_button_label: 'Verwijder plaats',
@@ -264,7 +264,7 @@ def create_event_question()
     id: :gebeurd_expandable,
     type: :expandable,
     max_expansions: 5,
-    title: 'Is er in de afgelopen week iets belangrijks gebeurd? Zo ja, kun je een gebeurtenis toevoegen via de knop "Voeg gebeurtenis toe".',
+    title: 'Is er in de deze week iets belangrijks gebeurd? Zo ja, kun je een gebeurtenis toevoegen via de knop "Voeg gebeurtenis toe".',
     add_button_label: 'Voeg gebeurtenis toe',
     remove_button_label: 'Verwijder gebeurtenis',
     content: [
@@ -316,6 +316,18 @@ def create_srss_question(title, examples)
     max: 6,
     step: 1,
     value: 0
+  }
+end
+
+def create_extra_vco_questions_text()
+  {
+    type: :raw,
+    content: '
+    <p class="flow-text section-explanation">
+      Hieronder vind je enkele aanvullende vragen.
+      Geef aan in welke mate ze voor jou op dit moment van toepassing zijn.
+    </p>
+    '
   }
 end
 
@@ -443,6 +455,7 @@ content = [
   create_fyiek_question(),
   create_mentaal_question(),
   *create_srss_questions(),
+  create_extra_vco_questions_text(),
   create_sfeer_question(),
   create_prestatie_future_question(),
   create_sleep_quality_question(),
