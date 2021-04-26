@@ -115,6 +115,15 @@ def create_prestatie_question()
   )
 end
 
+def create_prestatie_future_question()
+  create_ponder_question(
+    :prestatie_future,
+    'Hoe zeker ben je ervan dat je deze week maximaal kan presteren',
+    'helemaal niet zeker',
+    'heel erg zeker'
+  )
+end
+
 def create_fyiek_question()
   {
     id: :fysiek,
@@ -170,12 +179,39 @@ def create_mentaal_question()
 end
 
 def create_prestatiedruk_question()
-    create_ponder_question(
-      :prestatiedruk,
-      'Hoeveel prestatiedruk heb jij deze week ervaren?',
-      'helemaal geen prestatiedruk',
-      'heel veel prestatiedruk'
-    )
+  create_ponder_question(
+    :prestatiedruk,
+    'Hoeveel <b>prestatiedruk</b> heb jij deze week ervaren?',
+    'helemaal geen prestatiedruk',
+    'heel veel prestatiedruk'
+  )
+end
+
+def create_leerstof_question()
+  create_ponder_question(
+    :leerstof,
+    'Hoe goed kon je de hoeveelheid leerstof de afgelopen week verwerken?',
+    'heel erg slecht',
+    'heel erg goed'
+  )
+end
+
+def create_sfeer_question()
+  create_ponder_question(
+    :sfeer,
+    'Hoe vind je de sfeer in de groep?',
+    'heel erg slecht',
+    'heel erg goed'
+  )
+end
+
+def create_sleep_quality_question()
+  create_ponder_question(
+    :sleep_quality,
+    'Hoe goed heb je de afgelopen 3 nachten geslapen?',
+    'heel erg slecht',
+    'heel erg goed'
+  )
 end
 
 def create_medic_question()
@@ -394,6 +430,30 @@ questionnaire.title = title
 questionnaire.save!
 
 ###
+# Start van de week VCO
+###
+title = 'Start van de week VCO'
+name = 'KCT Start van de week VCO'
+questionnaire = Questionnaire.find_by(name: name)
+questionnaire ||= Questionnaire.new(name: name)
+questionnaire.key = 'start_vco'
+
+content = [
+  create_number_question(),
+  create_fyiek_question(),
+  create_mentaal_question(),
+  *create_srss_questions(),
+  create_sfeer_question(),
+  create_prestatie_future_question(),
+  create_sleep_quality_question(),
+  *create_medic_question(),
+]
+
+questionnaire.content = { questions: content, scores: [] }
+questionnaire.title = title
+questionnaire.save!
+
+###
 # Eind van de week VCO
 ###
 title = 'Eind van de week VCO'
@@ -404,11 +464,11 @@ questionnaire.key = 'eind_vco'
 
 content = [
   create_number_question(),
-  create_inspannend_question(),
   create_fyiek_question(),
   create_mentaal_question(),
   create_prestatiedruk_question(),
-  create_prestatie_question
+  create_prestatie_question(),
+  create_leerstof_question()
 ]
 
 questionnaire.content = { questions: content, scores: [] }
