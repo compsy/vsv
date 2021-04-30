@@ -448,7 +448,7 @@ title = 'Start van de week VCO'
 name = 'KCT Start van de week VCO'
 questionnaire = Questionnaire.find_by(name: name)
 questionnaire ||= Questionnaire.new(name: name)
-questionnaire.key = 'start_vco'
+questionnaire.key = 'startvco'
 
 content = [
   create_number_question(),
@@ -473,7 +473,7 @@ title = 'Eind van de week VCO'
 name = 'KCT Eind van de week VCO'
 questionnaire = Questionnaire.find_by(name: name)
 questionnaire ||= Questionnaire.new(name: name)
-questionnaire.key = 'eind_vco'
+questionnaire.key = 'eindvco'
 
 content = [
   create_number_question(),
