@@ -410,7 +410,6 @@ questionnaire ||= Questionnaire.new(name: name)
 questionnaire.key = 'start'
 
 content = [
-  create_number_question(),
   create_weight_question(),
   *create_monday_ponder_questions(),
   *create_srss_questions(),
@@ -432,7 +431,6 @@ questionnaire ||= Questionnaire.new(name: name)
 questionnaire.key = 'eind'
 
 content = [
-  create_number_question(),
   create_inspannend_question(),
   create_prestatie_question()
 ]
@@ -451,7 +449,6 @@ questionnaire ||= Questionnaire.new(name: name)
 questionnaire.key = 'startvco'
 
 content = [
-  create_number_question(),
   create_fyiek_question(),
   create_mentaal_question(),
   *create_srss_questions(),
@@ -476,7 +473,6 @@ questionnaire ||= Questionnaire.new(name: name)
 questionnaire.key = 'eindvco'
 
 content = [
-  create_number_question(),
   create_fyiek_question(),
   create_mentaal_question(),
   create_prestatiedruk_question(),
