@@ -38,6 +38,60 @@ def create_ponder_question(id, title, negative, positive)
   }
 end
 
+def create_start_recovery_question_fysiek
+  {
+    id: :herstel_fysiek,
+    type: :radio,
+    required: true,
+    title: 'Hoe goed ben je fysiek hersteld?',
+    options: [
+      '6',
+      '7 (heel, heel slecht hersteld)',
+      '8',
+      '9 (heel slecht hersteld)',
+      '10',
+      '11 (slecht hersteld)',
+      '12',
+      '13 (redelijk hersteld)',
+      '14',
+      '15 (goed hersteld)',
+      '16',
+      '17 (heel goed hersteld)',
+      '18',
+      '19 (heel, heel goed hersteld)',
+      '20'
+    ],
+    show_otherwise: false
+  }
+end
+
+def create_start_recovery_question_mentaal()
+  {
+    id: :herstel_mentaal,
+    type: :radio,
+    required: true,
+    title: 'Hoe goed ben je mentaal hersteld?',
+    options: [
+      '6',
+      '7 (heel, heel slecht hersteld)',
+      '8',
+      '9 (heel slecht hersteld)',
+      '10',
+      '11 (slecht hersteld)',
+      '12',
+      '13 (redelijk hersteld)',
+      '14',
+      '15 (goed hersteld)',
+      '16',
+      '17 (heel goed hersteld)',
+      '18',
+      '19 (heel, heel goed hersteld)',
+      '20'
+    ],
+    show_otherwise: false
+  }
+end
+
 def create_monday_ponder_questions()
   [
     {
@@ -109,9 +163,9 @@ end
 def create_prestatie_question()
   create_ponder_question(
     :prestatie,
-    'Hoe goed heb jij deze week gepresteerd?',
-    'ver beneden je kunnen',
-    'op de top van je kunnen'
+    'Hoe goed heb je deze week gepresteerd?',
+    'ver beneden mijn kunnen',
+    'op de top van mijn kunnen'
   )
 end
 
@@ -124,7 +178,7 @@ def create_prestatie_future_question()
   )
 end
 
-def create_fyiek_question()
+def create_fysiek_question()
   {
     id: :fysiek,
     type: :radio,
@@ -181,7 +235,7 @@ end
 def create_prestatiedruk_question()
   create_ponder_question(
     :prestatiedruk,
-    'Hoeveel prestatiedruk heb jij deze week ervaren?',
+    'Hoeveel prestatiedruk heb je deze week ervaren?',
     'helemaal geen prestatiedruk',
     'heel veel prestatiedruk'
   )
@@ -190,7 +244,7 @@ end
 def create_leerstof_question()
   create_ponder_question(
     :leerstof,
-    'Hoe goed kon jij deze week de leerstof verwerken?',
+    'Hoe goed kon je deze week de leerstof verwerken?',
     'heel erg slecht',
     'heel erg goed'
   )
@@ -214,7 +268,7 @@ def create_sleep_quality_question()
   )
 end
 
-def create_medic_question()
+def create_medic_question(im)
   [
     {
       id: :plaats_expandable,
@@ -252,7 +306,7 @@ def create_medic_question()
       type: :raw,
       content: '
       <center>
-        <img src="/images/questionnaires/kct/blessures.jpg" style="width: 80%, margin-left: 3rem;" />
+        <img src="/images/questionnaires/kct/#{im}" style="width: 80%, margin-left: 3rem;" />
       </center>
       '
     }
@@ -413,7 +467,7 @@ content = [
   create_weight_question(),
   *create_monday_ponder_questions(),
   *create_srss_questions(),
-  *create_medic_question(),
+  *create_medic_question("blessures.jpg"),
   create_event_question()
 ]
 
@@ -449,14 +503,14 @@ questionnaire ||= Questionnaire.new(name: name)
 questionnaire.key = 'startvco'
 
 content = [
-  create_fyiek_question(),
-  create_mentaal_question(),
+  create_start_recovery_question_fysiek(),
+  create_start_recovery_question_mentaal(),
   *create_srss_questions(),
   create_extra_vco_questions_text(),
   create_sfeer_question(),
   create_prestatie_future_question(),
   create_sleep_quality_question(),
-  *create_medic_question(),
+  *create_medic_question("operator.png"),
 ]
 
 questionnaire.content = { questions: content, scores: [] }
@@ -474,6 +528,7 @@ questionnaire.key = 'eindvco'
 
 content = [
   create_fyiek_question(),
+  create_fysiek_question(),
   create_mentaal_question(),
   create_prestatiedruk_question(),
   create_prestatie_question(),
