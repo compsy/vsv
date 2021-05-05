@@ -528,7 +528,7 @@ questionnaire.key = 'eindvco'
 
 content = [
   create_fysiek_question(),
-  create_fysiek_question(),
+  create_mentaal_question(),
   create_mentaal_question(),
   create_prestatiedruk_question(),
   create_prestatie_question(),
