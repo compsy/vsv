@@ -307,7 +307,7 @@ def create_medic_question(im)
       # String substitution only works for double quoted strings.
       content: "
       <center>
-        <img src=\"/images/questionnaires/kct/#{im}\" style=\"width: 80%, margin-left: 3rem;\" />
+        <img src=\"/images/questionnaires/kct/#{im}\" style=\"width: 80%; margin-left: 3rem;\" />
       </center>
       "
     }
