@@ -527,7 +527,7 @@ questionnaire ||= Questionnaire.new(name: name)
 questionnaire.key = 'eindvco'
 
 content = [
-  create_fyiek_question(),
+  create_fysiek_question(),
   create_fysiek_question(),
   create_mentaal_question(),
   create_prestatiedruk_question(),
