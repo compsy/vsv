@@ -172,7 +172,7 @@ end
 def create_prestatie_future_question()
   create_ponder_question(
     :prestatie_future,
-    'Hoe zeker ben je ervan dat je deze week maximaal kan presteren',
+    'Hoe zeker ben je ervan dat je deze week maximaal kan presteren?',
     'helemaal niet zeker',
     'heel erg zeker'
   )
