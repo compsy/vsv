@@ -23,6 +23,8 @@
 //= require highcharts/modules/boost
 //= require study_progress_bar
 //= require sketch
+//= require jquery
+//= require materialize-css
 //= require_tree .
 $(function(){
   $('.download-button').click(function() { $(this).attr('disabled', true)})

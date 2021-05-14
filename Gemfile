@@ -164,7 +164,7 @@ gem 'silencer'
 gem 'materialize-sass'
 gem 'modernizr-rails'
 
-gem 'webpacker'
+gem 'webpacker', '>=6.0.0.pre.2'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data'

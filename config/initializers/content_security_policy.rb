@@ -1,6 +1,7 @@
 # This is needed to allow the webpack-dev-server to work
 Rails.application.config.content_security_policy do |policy|
   policy.connect_src :self, :https, 'http://localhost:3036', 'ws://localhost:3036' if Rails.env.development?
+  policy.connect_src :self, :https, 'http://localhost:8080', 'ws://localhost:8080' if Rails.env.development?
 end
 
 # Be sure to restart your server when you modify this file.

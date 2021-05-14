@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import moment from 'moment'
 import { dateAndTimePickerDefaultOptions, backendDateFormat, backendHoursFormat, backendMinutesFormat } from './Constants'
 import { nl, enUS } from 'date-fns/locale'
-import I18n from 'i18n'
+import I18n from '../../../public/javascripts/i18n'
 
 const DateAndTimePicker = props => {
   const calculateStartDate = () => {

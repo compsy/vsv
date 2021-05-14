@@ -1,5 +1,5 @@
 import React from 'react';
-import I18n from 'i18n';
+import I18n from '../../../../public/javascripts/i18n';
 
 export default class DefaultRewardPage extends React.Component {
   render() {

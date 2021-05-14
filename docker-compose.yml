@@ -24,7 +24,7 @@ services:
       - gems_volume:/usr/local/bundle/ruby/2.6.0
       - /app/tmp
     ports:
-      - "3036:3036"
+      - "8080:3036"
     depends_on:
       - web
     links:

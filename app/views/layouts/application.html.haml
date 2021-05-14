@@ -14,8 +14,9 @@
   %title= Rails.application.config.settings.project_title
   = csrf_meta_tags
   = csp_meta_tag
-  = stylesheet_packs_with_chunks_tag 'application', media: 'all'
-  = javascript_packs_with_chunks_tag 'application'
+  =# stylesheet_pack_tag 'application', media: 'all'
+  = javascript_pack_tag 'application'
+  = javascript_pack_tag 'application'
   = stylesheet_link_tag    'application', media: 'all'
   = javascript_include_tag 'application'
   %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}

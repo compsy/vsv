@@ -11,7 +11,7 @@ global.$ = global.jQuery = $;
 require('materialize-css');
 
 // I18n stuff
-import I18n from 'i18n'
+import I18n from '../../public/javascripts/i18n'
 I18n.defaultLocale = 'nl';
 I18n.locale = 'nl';
 
