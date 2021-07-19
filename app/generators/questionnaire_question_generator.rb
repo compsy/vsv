@@ -21,7 +21,8 @@ class QuestionnaireQuestionGenerator < Generator
       section_start: SectionStartGenerator.new,
       section_end: SectionEndGenerator.new,
       klasses: KlassesGenerator.new,
-      date_and_time: DateAndTimeGenerator.new
+      date_and_time: DateAndTimeGenerator.new,
+      days: DaysGenerator.new
     }
     super
   end

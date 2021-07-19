@@ -45,7 +45,7 @@ const DateAndTimePicker = props => {
         maxDate={calculateMax()}
         required={props.required}
         locale={(props.locale && props.locale === 'en') ? enUS : nl }
-        timeCaption={I18n.t('time', { locale: props.locale })}
+        timeCaption={I18n.t('time.time', { locale: props.locale })}
       />
       <label htmlFor={props.id} className={classNames('input-label', startDate && 'active')}>{props.placeholder}</label>
       {startDate && (

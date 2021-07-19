@@ -334,7 +334,7 @@ Of heeft zij daar nog geen tijd voor gehad. Hij al wel.
 Please never use `de {{begeleider}}` or `het {{begeleider}}`, but always `je {{begeleider}}` or `jouw {{begeleider}}`.
 
 ## Questionnaire Syntax
-The `content` attribute of a `Questionnaire` is a Hash with two keys, `:questions` and `:scores`. `content[:questions]` is a serialized array that stores the questionnaire definition. The following types of questions are supported: `:checkbox`, `:radio`, `:range`, `:raw`, `:textarea`, `:textfield`, `:expandable`, `:time`, `:date`, `:dropdown`.
+The `content` attribute of a `Questionnaire` is a Hash with two keys, `:questions` and `:scores`. `content[:questions]` is a serialized array that stores the questionnaire definition. The following types of questions are supported: `:checkbox`, `:radio`, `:range`, `:raw`, `:textarea`, `:textfield`, `:expandable`, `:time`, `:date`, `:dropdown`, `:unsubscribe`, `:drawing`, `:date_and_time`, `:days`.
 
 For all questions, it is allowed to use HTML tags in the texts. 
 Also, you may use any of the special variables defined in the previous section.
@@ -928,6 +928,46 @@ Height and width should be specified as integers, without any postfix such as `p
 Image can be the URL of an image, or the filename of an image that exists in the asset pipeline.
 
 The only optional parameters are `radius` and `density`. They default to 15 and 40, respectively.
+
+
+### Type: Days
+
+This question type is used to let the user select days or day parts until today, from `from_days_ago` until today.
+
+Required and allowed options (minimal example and maximal example):
+
+```ruby
+[{
+  id: :v1,
+  type: :days,
+  title: 'Wanneer ben je gestopt?',
+  from_days_ago: 14,
+}, {
+  section_start: 'Tot slot',
+  hidden: true,
+  id: :v1,
+  type: :days,
+  title: 'Wanneer ben je gestopt?',
+  shows_questions: [:v56],
+  hides_questions: [:v57],
+  date_format: '%A %e %B',
+  from_days_ago: 14,
+  exclude_weekends: false,
+  include_today: false,
+  morning_and_afternoon: false,
+  required: false,
+  tooltip: 'some tooltip',
+  section_end: true
+}]
+```
+
+The setting `exclude_weekends` (defaults to `false`), `include_today` (defaults to `false`), and `morning_and_afternoon` (defaults to `false`). The latter setting means that two checkboxes will be generated per day, one labeled as morning and one labeled as afternoon.
+
+The settings `shows_questions` and `hides_questions` can be optionally specified, in which case those are triggered when the user selects at least one of the day(part)s.
+
+If `required` (defaults to `false`) is `true` then the user is required to select at least one day(part).
+
+The setting `date_format` can be overridden to specify a different date format. The formatted date is appended by "morning" and "afternoon" if `morning_and_afternoon` is set to `true`.
 
 
 ## Questionnaire Scores

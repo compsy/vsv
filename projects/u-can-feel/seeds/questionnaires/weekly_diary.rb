@@ -82,19 +82,16 @@ dagboek_content = [
     ]
   }, {
     id: :v10_a,
-    type: :radio,
-    show_otherwise: false,
+    type: :days,
     hidden: true,
-    title: 'Je gaf aan dat je de afgelopen week naar school bent geweest. Heb je in de afgelopen week wel lessen gemist? Het maakt niet uit wat de reden was. Als je alleen een paar minuten te laat was, hoef je het niet mee te tellen.',
-    options: [
-      { title: 'Nee, ik heb geen lessen gemist' },
-      { title: 'Ik heb één schooluur tot een halve dag gemist', shows_questions: %i[v10_b] },
-      { title: 'Ik heb ongeveer 1 schooldag gemist', shows_questions: %i[v10_b] },
-      { title: 'Ik heb ongeveer 2 schooldagen gemist', shows_questions: %i[v10_b] },
-      { title: 'Ik heb ongeveer 3 schooldagen gemist', shows_questions: %i[v10_b] },
-      { title: 'Ik heb ongeveer 4 schooldagen gemist', shows_questions: %i[v10_b] },
-      { title: 'Ik heb ongeveer 5 schooldagen gemist', shows_questions: %i[v10_b] }
-    ]
+    title: 'Je gaf aan dat je de afgelopen week naar school bent geweest. Heb je in de afgelopen week wel lessen gemist? Vink de dagdelen aan waarop je <strong>niet</strong> naar school bent geweest.',
+    tooltip: 'Het maakt niet uit wat de reden was. Als je alleen een paar minuten te laat was, hoef je het niet mee te tellen.',
+    shows_questions: %i[v10_b],
+    required: false,
+    from_days_ago: 7,
+    exclude_weekends: true,
+    include_today: false,
+    morning_and_afternoon: true,
   }, {
     id: :v10_b,
     type: :checkbox,
