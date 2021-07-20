@@ -1,0 +1,19 @@
+# Beware! This file is public by definition
+default: &default
+  default_team_name: 'Demo-team'
+  # This settings is included only for the specs. Don't remove
+  test_setting: 'test123' 
+  project_start_date: '2017-12-01'
+  project_end_date: '2018-12-01'
+  logo:
+    mentor_logo: 'logo.jpg'
+    student_logo: 'logo.jpg'
+    fallback_logo: 'logo.jpg'
+development:
+  <<: *default
+production:
+  <<: *default
+test:
+  <<: *default
+staging:
+  <<: *default
