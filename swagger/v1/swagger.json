@@ -792,6 +792,72 @@
     },
     "/protocol_subscriptions/mine": {
       "get": {
+        "summary": "Lists all my active protocolsubscriptions filled out for myself",
+        "tags": [
+          "ProtocolSubscription"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "JwtAuth": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "all my protocol subscriptions returned",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "person_type": {
+                    "type": "string"
+                  },
+                  "protocol_completion": {
+                    "type": "array"
+                  },
+                  "earned_euros": {
+                    "type": "number"
+                  },
+                  "max_still_awardable_euros": {
+                    "type": "number"
+                  },
+                  "euro_delta": {
+                    "type": "number"
+                  },
+                  "current_multiplier": {
+                    "type": "number"
+                  },
+                  "max_streak": {
+                    "type": "null"
+                  },
+                  "initial_multiplier": {
+                    "type": "number"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "questionnaires": {
+                    "type": "array"
+                  },
+                  "first_name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not authenticated"
+          }
+        }
+      }
+    },
+    "/protocol_subscriptions/my_active_and_inactive": {
+      "get": {
         "summary": "Lists all my protocolsubscriptions",
         "tags": [
           "ProtocolSubscription"

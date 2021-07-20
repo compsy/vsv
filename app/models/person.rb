@@ -92,13 +92,17 @@ class Person < ApplicationRecord
   def my_protocols(for_myself = true)
     return [] if protocol_subscriptions.active.blank?
 
-    prot_subs = protocol_subscriptions.active.joins(
+    prot_subs = my_inactive_and_active_protocol_subscriptions.active
+
+    filter_for_myself(prot_subs, for_myself)
+  end
+
+  def my_inactive_and_active_protocol_subscriptions
+    protocol_subscriptions.joins(
       :protocol
     ).joins(
       'LEFT JOIN one_time_responses ON one_time_responses.protocol_id = protocols.id'
     ).where(one_time_responses: { id: nil })
-
-    filter_for_myself(prot_subs, for_myself)
   end
 
   # For any method that only returns open responses, we want them to be sorted by descending priority first,
